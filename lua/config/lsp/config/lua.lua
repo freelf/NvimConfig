@@ -32,6 +32,6 @@ local opt = {
 
 return {
     on_setup = function(server)
-        server.setup(opts)
+        server.setup(opt)
     end
 }
