@@ -41,3 +41,15 @@ mason_lspconfig.setup({
 mason_tool.setup({
     ensure_installed = {"stylua", "prettier", "clang-format", }
 })
+
+local servers = {
+    lua_ls = require("config.lsp.config.lua")
+}
+
+for name, config in pairs(servers) do
+    if config ~= nil and type(config) == "table" then
+        config.on_setup(nvim_lsp[name])
+    else
+        nvim_lsp[name].setup({})
+    end
+end

@@ -1,7 +1,7 @@
 -- define common options
 local opts = {
-    noremap = true,      -- non-recursive
-    silent = true,       -- do not show message
+    noremap = true, -- non-recursive
+    silent = true -- do not show message
 }
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -26,7 +26,7 @@ vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 vim.keymap.set("n", "<C-h>", ":BufferLineCyclePrev<CR>", opts)
 vim.keymap.set("n", "<C-l>", ":BufferLineCycleNext<CR>", opts)
 -- 关闭
---"moll/vim-bbye"
+-- "moll/vim-bbye"
 vim.keymap.set("n", "<D-w>", ":Bdelete!<CR>", opts)
 vim.keymap.set("n", "<leader>bl", ":BufferLineCloseRight<CR>", opts)
 vim.keymap.set("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opts)
@@ -47,20 +47,33 @@ vim.keymap.set('v', '>', '>gv', opts)
 local pluginKeys = {}
 pluginKeys.telescopeList = {
     i = {
-      -- 上下移动
-      ["<C-j>"] = "move_selection_next",
-      ["<C-k>"] = "move_selection_previous",
-      ["<Down>"] = "move_selection_next",
-      ["<Up>"] = "move_selection_previous",
-      -- 历史记录
-      ["<C-n>"] = "cycle_history_next",
-      ["<C-p>"] = "cycle_history_prev",
-      -- 关闭窗口
-      ["<C-c>"] = "close",
-      -- 预览窗口上下滚动
-      ["<C-u>"] = "preview_scrolling_up",
-      ["<C-d>"] = "preview_scrolling_down",
-    },
+        -- 上下移动
+        ["<C-j>"] = "move_selection_next",
+        ["<C-k>"] = "move_selection_previous",
+        ["<Down>"] = "move_selection_next",
+        ["<Up>"] = "move_selection_previous",
+        -- 历史记录
+        ["<C-n>"] = "cycle_history_next",
+        ["<C-p>"] = "cycle_history_prev",
+        -- 关闭窗口
+        ["<C-c>"] = "close",
+        -- 预览窗口上下滚动
+        ["<C-u>"] = "preview_scrolling_up",
+        ["<C-d>"] = "preview_scrolling_down"
+    }
 }
+
+pluginKeys.lspKeyBinding = function(mapbuf)
+    -- rename
+    mapbuf("n", "<leader>r", ":lua vim.lsp.buf.rename<CR>", opt)
+    -- code action
+    mapbuf("n", "<leader>ca", ":lua vim.lsp.buf.code_action()<CR>", opt)
+    -- go to definition
+    mapbuf("n", "gd", ":lua vim.lsp.buf.definition()<CR>", opt)
+    -- show hover
+    mapbuf("n", "gh", ":lua vim.lsp.buf.hover()<CR>", opt)
+    -- format
+    mapbuf("n", "<leader>=", ":lua vim.lsp.buf.format { async = true }<CR>", opt)
+end
 
 return pluginKeys
