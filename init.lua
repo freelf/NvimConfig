@@ -1,0 +1,13 @@
+require('options')
+require('keymaps')
+require('plugins')
+require('colorscheme')
+-- Plugin
+require('config.nvim-tree')
+require('config.bufferline')
+require('config.lualine')
+require('config.telescope')
+require('config.dashboard')
+require('config.project')
+require('config.nvim-treesitter')
+require('config.lsp.setup')
