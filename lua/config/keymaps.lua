@@ -27,7 +27,7 @@ vim.keymap.set("n", "<C-h>", ":BufferLineCyclePrev<CR>", opts)
 vim.keymap.set("n", "<C-l>", ":BufferLineCycleNext<CR>", opts)
 -- 关闭
 -- "moll/vim-bbye"
-vim.keymap.set("n", "<D-w>", ":Bdelete!<CR>", opts)
+vim.keymap.set("n", "<C-w>", ":Bdelete!<CR>", opts)
 vim.keymap.set("n", "<leader>bl", ":BufferLineCloseRight<CR>", opts)
 vim.keymap.set("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opts)
 vim.keymap.set("n", "<leader>bc", ":BufferLinePickClose<CR>", opts)
@@ -45,6 +45,7 @@ vim.keymap.set('v', '<', '<gv', opts)
 vim.keymap.set('v', '>', '>gv', opts)
 
 local pluginKeys = {}
+
 pluginKeys.telescopeList = {
     i = {
         -- 上下移动
@@ -62,18 +63,5 @@ pluginKeys.telescopeList = {
         ["<C-d>"] = "preview_scrolling_down"
     }
 }
-
-pluginKeys.lspKeyBinding = function(mapbuf)
-    -- rename
-    mapbuf("n", "<leader>r", ":lua vim.lsp.buf.rename<CR>", opts)
-    -- code action
-    mapbuf("n", "<leader>ca", ":lua vim.lsp.buf.code_action()<CR>", opts)
-    -- go to definition
-    mapbuf("n", "gd", ":lua vim.lsp.buf.definition()<CR>", opts)
-    -- show hover
-    mapbuf("n", "gh", ":lua vim.lsp.buf.hover()<CR>", opts)
-    -- format
-    mapbuf("n", "<leader>=", ":lua vim.lsp.buf.format { async = true }<CR>", opts)
-end
 
 return pluginKeys
