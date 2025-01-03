@@ -65,15 +65,15 @@ pluginKeys.telescopeList = {
 
 pluginKeys.lspKeyBinding = function(mapbuf)
     -- rename
-    mapbuf("n", "<leader>r", ":lua vim.lsp.buf.rename<CR>", opt)
+    mapbuf("n", "<leader>r", ":lua vim.lsp.buf.rename<CR>", opts)
     -- code action
-    mapbuf("n", "<leader>ca", ":lua vim.lsp.buf.code_action()<CR>", opt)
+    mapbuf("n", "<leader>ca", ":lua vim.lsp.buf.code_action()<CR>", opts)
     -- go to definition
-    mapbuf("n", "gd", ":lua vim.lsp.buf.definition()<CR>", opt)
+    mapbuf("n", "gd", ":lua vim.lsp.buf.definition()<CR>", opts)
     -- show hover
-    mapbuf("n", "gh", ":lua vim.lsp.buf.hover()<CR>", opt)
+    mapbuf("n", "gh", ":lua vim.lsp.buf.hover()<CR>", opts)
     -- format
-    mapbuf("n", "<leader>=", ":lua vim.lsp.buf.format { async = true }<CR>", opt)
+    mapbuf("n", "<leader>=", ":lua vim.lsp.buf.format { async = true }<CR>", opts)
 end
 
 return pluginKeys

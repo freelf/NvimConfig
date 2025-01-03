@@ -30,8 +30,4 @@ local opt = {
     settings = {Lua = {}}
 }
 
-return {
-    on_setup = function(server)
-        server.setup(opt)
-    end
-}
+return opt
