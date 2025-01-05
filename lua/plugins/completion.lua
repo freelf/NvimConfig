@@ -20,8 +20,7 @@ return {
                     vim.fn["vsnip#anonymous"](args.body)
                 end,
             },
-            mapping = cmp.mapping.preset.insert({
-            }),
+            mapping = require("config.keymaps").cmp(cmp),
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
                 { name = "vsnip" },

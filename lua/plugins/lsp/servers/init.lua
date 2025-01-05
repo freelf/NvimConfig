@@ -2,7 +2,8 @@ local M = {}
 
 function M.setup(handlers)
     local servers = {
-        lua_ls = require("plugins.lsp.servers.lua")
+        lua_ls = require("plugins.lsp.servers.lua"),
+        clangd = require("plugins.lsp.servers.clangd")
     }
 
     local lspconfig = require("lspconfig")
@@ -12,6 +13,7 @@ function M.setup(handlers)
             local opts = {
                 capabilities = handlers.capabilities,
                 on_attach = handlers.on_attach,
+                flags = handlers.flags,
             }
 
             -- 合并特定服务器的配置

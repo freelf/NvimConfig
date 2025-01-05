@@ -6,6 +6,9 @@ function M.setup()
     M.on_attach = function(client, bufnr)
         require("plugins.lsp.keymaps").setup(bufnr)
     end
+    M.capabilities = config.capabilities
+    M.flags = config.flags
+
     require("plugins.lsp.servers").setup(M)
 end
 
