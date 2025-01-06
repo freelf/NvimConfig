@@ -38,6 +38,7 @@ return {
             "mason-tool-installer.nvim",
         },
         config = function(_, _)
+            require("plugins.lsp.ui")
             require("plugins.lsp.handlers").setup()
         end
     },
