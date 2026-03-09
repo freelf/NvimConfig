@@ -1,6 +1,7 @@
 local opt = vim.opt
 
 opt.number = true -- show absolute number
+opt.relativenumber = true -- show relative number
 opt.cursorline = true
 opt.splitright = true -- open new horizontal splits right
 
