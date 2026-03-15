@@ -27,7 +27,9 @@ vim.keymap.set("n", "<C-h>", ":BufferLineCyclePrev<CR>", opts)
 vim.keymap.set("n", "<C-l>", ":BufferLineCycleNext<CR>", opts)
 -- 关闭
 -- "moll/vim-bbye"
-vim.keymap.set("n", "<C-w>", ":Bdelete!<CR>", opts)
+-- vim.keymap.set("n", "<C-w>", ":Bdelete!<CR>", opts)
+-- 释放 Ctrl+w，用空格+x 关闭文件
+vim.keymap.set("n", "<leader>x", ":Bdelete!<CR>", opts)
 vim.keymap.set("n", "<leader>bl", ":BufferLineCloseRight<CR>", opts)
 vim.keymap.set("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opts)
 vim.keymap.set("n", "<leader>bc", ":BufferLinePickClose<CR>", opts)
